@@ -29,7 +29,7 @@ public class FincaController {
     ProducerRepository repoProd;
 
     /**
-     * Get finca information from the form.
+     * Get farmland information from the form.
      *
      * @param model
      * @return
