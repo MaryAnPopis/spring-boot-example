@@ -9,5 +9,5 @@ import java.util.List;
 
 
 public interface ProducerRepository extends JpaRepository<Producer, Long>{
-    List<Producer> findByFirstnameLike(String name);
+    List<Producer> findByFirstnameContaining(String name);
 }

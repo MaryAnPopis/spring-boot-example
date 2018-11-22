@@ -14,7 +14,7 @@ public class Farmland {
 	@Column(name="name")
 	private String name;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_producer")
 	private Producer producer = new Producer();
 
