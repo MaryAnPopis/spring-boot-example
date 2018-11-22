@@ -146,20 +146,11 @@ public class ProducerController {
     @RequestMapping(value = "/searchproducer", method = RequestMethod.POST)
     public String showFoundProducer(Model model, @ModelAttribute("searchProducer") Producer producer) {
 
-        List<Producer> allProducers =  repo.findByFirstnameLike(producer.getFirstname());
+        List<Producer> allProducers =  repo.findByFirstnameContaining(producer.getFirstname());
 
-        for (Producer p: allProducers) {
-            if (producer.getFirstname().equals(p.getFirstname())) {
-                producer.setId(p.getId());
-            }
-        }
         model.addAttribute("allProducers", allProducers);
-        if(producer.getId() != null){
-            return "redirect:/viewproducer/" + producer.getId();
-        }else{
-            return "searchproducer";
-        }
 
+        return "searchproducer";
     }
 
 

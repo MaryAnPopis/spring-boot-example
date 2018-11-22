@@ -30,7 +30,7 @@
 </nav>
 <!-- End NAVBAR -->
 <div class="container">
-    <h1 class="text-center mt-5 mb-4">Buscar productor por aproximación sobre firstname</h1>
+    <h1 class="text-center mt-5 mb-4">Buscar productor por aproximación sobre nombre</h1>
     <div class="rounded shadow p-4 bg-white ">
         <form th:object="${searchProducer}" th:action="@{/searchproducer}" method="post">
             <div class="form">
@@ -41,6 +41,18 @@
             <button type="submit" class="btn btn-dark btn-block">Buscar productor</button>
             </div>
         </form>
+        <h4 class="text-center mt-5">Productores encontrados</h4>
+        <div class="row mt-4">
+        <th:block th:each="found : ${allProducers}">
+            <div class="col-md-3">
+                <a th:href="${'/viewproducer/' + found.getId()}" class="card">
+                    <div class="card-body" th:text="${found.getFirstname()}">
+                        This is some text within a card body.
+                    </div>
+                </a>
+            </div>
+        </th:block>
+        </div>
     </div>
 </div>
 <!-- Footer -->
